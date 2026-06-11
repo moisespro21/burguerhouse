@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger House</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>🍔 Burger House</h1>
+        <nav>
+            <a href="#menu">Menú</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#" onclick="toggleCarrito()" class="cart-btn">
+                🛒 Carrito (<span id="cart-count">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Las mejores hamburguesas de la ciudad</h2>
+        <p>Jugosas, deliciosas y hechas con amor ❤️</p>
+        <p>¡Pide la tuya ahora!</p>
+        <button onclick="ordenar()">Ordenar ahora</button>
+    </section>
+
+    <section id="menu">
+        <h2>Nuestro Menú</h2>
+
+        <div class="card">
+            <img src="./recursos/img/Clasica.png" alt="Hamburguesa Clásica">
+            <h3>Hamburguesa Clásica</h3>
+            <p>Carne, lechuga, tomate y queso</p>
+            <span>$8.99</span>
+            <button onclick="agregar('Clasica')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="./recursos/img/Doble.png" alt="Hamburguesa Doble">
+            <h3>Hamburguesa Doble</h3>
+            <p>Doble carne, doble queso</p>
+            <span>$12.99</span>
+            <button onclick="agregar('Doble')">Agregar</button>
+        </div>
+
+        <div class="card">
+            <img src="./recursos/img/bbq.jpg" alt="Hamburguesa BBQ">
+            <h3>Hamburguesa BBQ</h3>
+            <p>Carne, salsa BBQ, cebolla caramelizada</p>
+            <span>$10.99</span>
+            <button onclick="agregar('BBQ')">Agregar</button>
+        </div>
+        <div class="clear float"></div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos un negocio familiar apasionado por las hamburguesas.</p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form onsubmit="enviarFormulario(event)">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <textarea placeholder="Mensaje"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Todos los derechos reservados © 2026-Burger House</p>
+    </footer>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button class="close-btn" onclick="toggleCarrito()">❌</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            </div>
+        <div class="cart-footer">
+            <h3>Total: $<span id="cart-total">0.00</span></h3>
+            <button class="checkout-btn" onclick="comprar()">Proceder al Pago</button>
+        </div>
+    </div>
+<div id="payment-modal" class="payment-modal hidden">
+        <div class="payment-content">
+            <h3>Procesando tu pago... 💳</h3>
+            <div class="progress-bar-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="payment-status">Conectando con el banco...</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
